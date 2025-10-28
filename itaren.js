@@ -101,7 +101,7 @@ function (dojo, declare, gamegui, counter) {
             this.getGameAreaElement().insertAdjacentHTML('beforeend', `
                 <div class="second-section">
                     <div class="projectsIT"></div>
-                    <div class="pamyatka"></div>
+                    <!-- <div class="pamyatka"></div> -->
                 </div>
             `);
 
@@ -109,7 +109,7 @@ function (dojo, declare, gamegui, counter) {
                 <div class="player-zone">
                     <div class="player-field"></div>
                     <div class="player-cards">
-                        <p>продажа</p>
+                    <p>продажа</p>
                         <div class="cards-zone">
                             <div class="card2"></div>
                             <div class="card2"></div>
