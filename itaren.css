@@ -68,5 +68,107 @@
 */
 
 
+.allSection {
+    display: flex;
+    align-items: start; 
+    padding: 10px; 
+}
 
+.allPlanshet {
+    background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 60%;
+    margin-left: 5%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    /* background-color: green; */
+}
 
+.cards-container {
+    margin-left: 5%;
+    width: 30%;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: green; */
+}
+
+.card {
+    background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/maya.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 90px;
+    height: 200px;
+    /* background-color: red; */
+}
+
+.menu {
+    text-align: center;
+    width: 30%;
+    margin-left: 5%;
+    /* background-color: blue; */
+}
+
+.paei {
+    margin-top: 20px;
+    width: 100px;
+    /* background-color: green; */
+    background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/dice.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    margin-left: calc((100% - 100px) / 2);
+    text-align: center;
+    color: white;
+}
+
+.paei h2 {
+    font-size: 20px;
+    padding-top: calc((100% - 30px) / 2);
+}
+
+.menu img {
+    width: 100px; 
+    height: auto;
+    object-fit: contain;
+    margin-top: 20px;
+}
+
+.second-section {
+    display: flex;
+    align-items: start; 
+    padding: 10px; 
+}
+
+.projectsIT {
+    margin-left: 5%;
+    width: 40%;
+    background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/projField.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: start;
+    height: 400px;
+    /* background-color: green; */
+}
+
+.pamyatka {
+    width: 30%;
+    background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/pamyatka2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5%;
+    height: 400px;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+}
