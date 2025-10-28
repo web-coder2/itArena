@@ -172,3 +172,45 @@
     display: flex;
     justify-content: center;
 }
+
+.player-zone {
+    display: flex;
+    align-items: center; 
+    padding: 10px;
+}
+
+.player-field {
+    margin-left: 5%;
+    width: 40%;
+    background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/PT-G.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 800px;
+    /* background-color: green; */
+}
+
+.player-cards {
+    margin-left: 2%;
+    /* background-color: red; */
+    width: 60%;
+}
+
+.cards-zone {
+    display: flex;
+    height: 33%;
+    gap: 10px;
+    flex-direction: row;
+    align-items: start;
+    padding: 10px;
+}
+
+.card2 {
+    width: 20%;
+    background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/maya.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 190px;
+    background-color: green;
+}

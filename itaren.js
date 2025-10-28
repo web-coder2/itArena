@@ -104,6 +104,29 @@ function (dojo, declare, gamegui, counter) {
                     <div class="pamyatka"></div>
                 </div>
             `);
+
+            this.getGameAreaElement().insertAdjacentHTML('beforeend', `
+                <div class="player-zone">
+                    <div class="player-field"></div>
+                    <div class="player-cards">
+                        <p>продажа</p>
+                        <div class="cards-zone">
+                            <div class="card2"></div>
+                            <div class="card2"></div>
+                            <div class="card2"></div>
+                        </div>
+                        <p>бэк офис</p>
+                        <div class="cards-zone">
+                            <div class="card2"></div>
+                        </div>
+                        <p>технари</p>
+                        <div class="cards-zone">
+                            <div class="card2"></div>
+                            <div class="card2"></div>
+                        </div>
+                    </div>
+                </div>
+            `);
             
             // TODO: Set up your game interface here, according to "gamedatas"
             
