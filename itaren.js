@@ -109,20 +109,22 @@ function (dojo, declare, gamegui, counter) {
                 <div class="player-zone">
                     <div class="player-field"></div>
                     <div class="player-cards">
-                    <p>продажа</p>
-                        <div class="cards-zone">
-                            <div class="card2"></div>
-                            <div class="card2"></div>
-                            <div class="card2"></div>
+                    <div class="cards-header">
+                        <p>продажа</p>
+                    </div>
+                        <div class="cards-zone bg-green">
+                            <div class="card2 shadow-green"></div>
+                            <div class="card2 shadow-green"></div>
+                            <div class="card2 shadow-green"></div>
                         </div>
                         <p>бэк офис</p>
-                        <div class="cards-zone">
-                            <div class="card2"></div>
+                        <div class="cards-zone bg-red">
+                            <div class="card2 shadow-red"></div>
                         </div>
                         <p>технари</p>
-                        <div class="cards-zone">
-                            <div class="card2"></div>
-                            <div class="card2"></div>
+                        <div class="cards-zone bg-blue">
+                            <div class="card2 shadow-blue"></div>
+                            <div class="card2 shadow-blue"></div>
                         </div>
                     </div>
                 </div>
