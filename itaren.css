@@ -218,11 +218,11 @@
     /* background-color: green; */
 }
 
-.card2:hover {
+/* .card2:hover {
     width: 20%;
     height: 180px;
     transition: width 0.8s ease, height 0.8s ease;
-}
+} */
 
 .cards-header {
     text-align: center;
@@ -252,4 +252,9 @@
 
 .bg-green {
     background-color: rgb(17, 49, 23)
+}
+
+.allSection-header {
+    padding: 10px;
+    margin-left: 5%;
 }

@@ -11,41 +11,43 @@
 
 $gameinfos = [
     // Name of the game in English (will serve as the basis for translation)
-    'game_name' => "My Great Game",
+    'game_name' => "IT Arena",
 
     // Game publisher (use empty string if there is no publisher)
-    'publisher' => 'My Publishing Company',
+    'publisher' => 'HBNetwork',
 
     // Url of game publisher website
-    'publisher_website' => 'http://www.mypublishingcompany.com/',
+    'publisher_website' => 'https://vk.com/itarenabg?from=groups',
 
-    // Board Game Geek ID of the publisher
+    // Board Game Geek ID of the publisher - ID издателя на Board Game Geek
+    //TODO проверить что данные актуальны
     'publisher_bgg_id' => 1234,
 
-    // Board game geek ID of the game
+    // Board game geek ID of the game - ID игры на Board Game Geek
+    //TODO проверить что данные актуальны
     'bgg_id' => 18745,
 
-    // Players configuration that can be played (ex: 2 to 4 players)
+    // Players configuration that can be played (ex: 2 to 4 players) - Конфигурация игроков, которая может быть сыграна (например: от 2 до 4 игроков)
     'players' => [2, 3, 4],
 
-    // Suggest players to play with this number of players. Must be null if there is no such advice, or if there is only one possible player configuration.
+    // Suggest players to play with this number of players. Must be null if there is no such advice, or if there is only one possible player configuration. - // Рекомендуемое количество игроков. Должно быть null если нет рекомендации.
     // NB: the automatic lobby will try first the lowest number of players if this is not specified. So you _have to_ specify this parameter if the lowest player number is not compatible with the default options.
-    'suggest_player_number' => null,
+    'suggest_player_number' => 4,
 
-    // Discourage players to play with these numbers of players. Must be null if there is no such advice.
+    // Discourage players to play with these numbers of players. Must be null if there is no such advice. - Не рекомендуется играть с таким количеством игроков. Null если нет ограничений.
     'not_recommend_player_number' => null,
     // 'not_recommend_player_number' => array( 2, 3 ),      // <= example: this is not recommended to play this game with 2 or 3 players
 
-    // Estimated game duration, in minutes (used only for the launch, afterward the real duration is computed)
-    'estimated_duration' => 30,
+    // Estimated game duration, in minutes (used only for the launch, afterward the real duration is computed) - // Примерная продолжительность игры в минутах (используется только при создании игры)
+    'estimated_duration' => 90,
 
-    // Time in second add to a player when "giveExtraTime" is called (speed profile = fast)
+    // Time in second add to a player when "giveExtraTime" is called (speed profile = fast) - Дополнительное время в секундах при вызове "giveExtraTime" (быстрый режим)
     'fast_additional_time' => 30,
 
-    // Time in second add to a player when "giveExtraTime" is called (speed profile = medium)
+    // Time in second add to a player when "giveExtraTime" is called (speed profile = medium) - Дополнительное время в секундах (средний режим)
     'medium_additional_time' => 40,
 
-    // Time in second add to a player when "giveExtraTime" is called (speed profile = slow)
+    // Time in second add to a player when "giveExtraTime" is called (speed profile = slow) - Дополнительное время в секундах (медленный режим)
     'slow_additional_time' => 50,
 
     // If you are using a tie breaker in your game (using "player_score_aux"), you must describe here
@@ -71,19 +73,20 @@ $gameinfos = [
     // NB: the default will be the first language in this list spoken by the player, so you should list them by popularity/preference.
     'language_dependency' => false,
 
-    // Colors attributed to players
-    'player_colors' => ['ff0000', '008000', '0000ff', 'ffa500', 'e94190', '982fff', '72c3b1', 'f07f16', 'bdd002', '7b7b7b', '000000', 'ffffff'],                       
+     // Цвета, назначаемые игрокам (желтый, синий, красный, зеленый)
+    'player_colors' => ['ffff00', '0000ff', 'ff0000', '008000'],                       
 
-    // Favorite colors support : if set to "true", support attribution of favorite colors based on player's preferences (see reattributeColorsBasedOnPreferences PHP method)
-    // NB: this parameter is used only to flag games supporting this feature; you must use (or not use) reattributeColorsBasedOnPreferences PHP method to actually enable or disable the feature.
+    // Поддержка любимых цветов
     'favorite_colors_support' => true,
 
     // When doing a rematch, the player order is swapped using a "rotation" so the starting player is not the same
     // If you want to disable this, set this to true
+    // Отключить смену порядка игроков при реванше
     'disable_player_order_swap_on_rematch' => false,
 
     // Game interface width range (pixels)
     // Note: game interface = space on the left side, without the column on the right
+    // Ширина игрового интерфейса (пиксели)
     'game_interface_width' => [
         // Minimum width
         //  default: 740
@@ -94,5 +97,6 @@ $gameinfos = [
 
     // Flag to enable 3D mode (adds a 3D button to the menu)
     // Enable this only if your game functions correctly in 3D
+    // Включить 3D режим (добавляет кнопку 3D в меню)
     'enable_3d' => false,
 ];

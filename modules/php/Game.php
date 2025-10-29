@@ -27,6 +27,8 @@ class Game extends \Bga\GameFramework\Table
 
     public PlayerCounter $playerEnergy;
 
+    private $roundNames;
+
     /**
      * Your global variables labels:
      *
@@ -39,7 +41,21 @@ class Game extends \Bga\GameFramework\Table
     public function __construct()
     {
         parent::__construct();
-        $this->initGameStateLabels([]); // mandatory, even if the array is empty
+
+        // Добавьте этот массив в класс
+        $this->roundNames = [
+            1 => 'Рождение идеи',
+            2 => 'Младенчество', 
+            3 => 'Детство',
+            4 => 'Юность', 
+            5 => 'Расцвет',
+            6 => 'Стабильность'
+        ];
+
+        $this->initGameStateLabels([
+            'current_round' => 10,
+        ]);
+
 
         $this->playerEnergy = $this->counterFactory->createPlayerCounter('energy');
 
@@ -68,6 +84,118 @@ class Game extends \Bga\GameFramework\Table
             return $args;
         });*/
     }
+
+    // Начало моего кода
+
+    /*
+     * gameSetup: Инициализация игры
+     */
+    function stGameSetup() {
+        // Инициализируем игровые данные
+        $this->initializeGame();
+        
+        // Переходим к первому раунду
+        $this->gamestate->nextState("");
+    }
+
+    /*
+     * newRound: Начало нового раунда
+     */
+    function stNewRound() {
+        // Увеличиваем счетчик раунда
+        $round = self::incGameStateValue("current_round", 1);
+
+        // Получаем название раунда
+        $roundName = clienttranslate($this->roundNames[$round]);
+        
+        // Уведомляем игроков о начале раунда
+        self::notifyAllPlayers(
+            "newRound", 
+            clienttranslate('=== Раунд ${round}: ${round_name} ==='), 
+            [
+                'round' => $round,
+                'round_name' => $roundName,
+                'i18n' => ['round_name']
+            ]
+        );
+        
+        // Переходим к фазе событий
+        $this->gamestate->nextState("");
+    }
+
+    /*
+     * eventPhase: Фаза событий
+     */
+    function stEventPhase() {
+        // Здесь будет логика событий для раунда
+        
+        self::notifyAllPlayers(
+            "message", 
+            clienttranslate('Event phase'), 
+            []
+        );
+        
+        // Переходим к следующей фазе
+        $this->gamestate->nextState("");
+    }
+
+    /*
+     * nextPhase: Управление переходами между фазами
+     */
+    function stNextPhase() {
+        // TODO: Здесь будет логика определения следующей фазы
+        // Пока просто переходим к проверке конца раунда
+        
+        $this->gamestate->nextState("endRound");
+    }
+
+    /*
+     * checkEndGame: Проверка окончания игры
+     */
+    function stCheckEndGame() {
+        $current_round = self::getGameStateValue("current_round");
+        
+        if ($current_round < 6) {
+            // Еще не все раунды пройдены - следующий раунд
+            $this->gamestate->nextState("nextRound");
+        } else {
+            // 6 раундов завершены - конец игры
+            $this->gamestate->nextState("endGame");
+        }
+    }
+
+    /*
+     * gameEnd: Завершение игры
+     */
+    function stGameEnd() {
+        // Подсчитываем финальные очки
+        $this->calculateFinalScores();
+        
+        // Завершаем игру
+        $this->gamestate->nextState("");
+    }
+
+    /*
+     * Вспомогательные методы
+     */
+    function initializeGame() {
+        // Инициализация базовых значений игры
+        self::setGameStateInitialValue("current_round", 0); // Начинаем с 0, чтобы первый раунд стал 1
+        
+        // TODO: Добавить другую инициализацию
+    }
+
+    function calculateFinalScores() {
+        // TODO: Реализовать подсчет очков
+        // Пока просто завершаем игру
+        $this->notifyAllPlayers(
+            "message", 
+            clienttranslate('Game ended! Final scores calculation...'), 
+            []
+        );
+    }
+
+    // Конец моего кода
 
     /**
      * Compute and return the current game progression.
@@ -127,6 +255,14 @@ class Game extends \Bga\GameFramework\Table
     protected function getAllDatas(): array
     {
         $result = [];
+
+        try {
+            $result["current_round"] = self::getGameStateValue("current_round") ?: 1;
+        } catch (\Exception $e) {
+            $result["current_round"] = 1;
+        }
+
+        $result["round_names"] = $this->roundNames;
 
         // WARNING: We must only return information visible by the current player.
         $current_player_id = (int) $this->getCurrentPlayerId();
