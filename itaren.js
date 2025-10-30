@@ -130,7 +130,7 @@ define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], functi
                 <div class="player-zone">
                     <div class="player-field"></div>
                     <div class="player-cards">
-                    <div class="cards-header bg-green">
+                    <div class="cards-header bg-green-header">
                         <p>продажа</p>
                     </div>
                         <div class="cards-zone bg-green">
@@ -138,13 +138,13 @@ define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], functi
                             <div class="card2 shadow-green"></div>
                             <div class="card2 shadow-green"></div>
                         </div>
-                    <div class="cards-header bg-red">
+                    <div class="cards-header bg-red-header">
                         <p>бэк офис</p>
                     </div>
                         <div class="cards-zone bg-red">
                             <div class="card2 shadow-red"></div>
                         </div>
-                    <div class="cards-header bg-blue">    
+                    <div class="cards-header bg-blue-header">    
                         <p>технари</p>
                     </div>
                         <div class="cards-zone bg-blue">

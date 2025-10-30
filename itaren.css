@@ -231,8 +231,7 @@
 
 
 .card2 {
-    height: 100%;
-    width: 15%;
+    width: 13%;
     background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/maya.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -244,6 +243,39 @@
 
     .cards-zone {
         max-height: 100px;
+    }
+
+    .player-field {
+        width: 50%;
+        background-position: top;
+    }
+
+    .card2 {
+        min-width: 20%;
+    }
+
+    .player-cards {
+        width: 50%;
+    }
+
+    .projectsIT {
+        width: 80%;
+        margin-left: 10%;
+        /* background-color: blue; */
+        background-position: center;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media (max-width: 1100px) and (min-width: 480px) {
+
+    .cards-zone {
+        max-height: 100px;
+    }
+
+    .card2 {
+        min-width: 20%;
     }
 
     .player-field {
@@ -300,6 +332,21 @@
 
 .bg-green {
     background-color: rgb(17, 49, 23)
+}
+
+
+
+.bg-blue-header {
+    background: linear-gradient(45deg, #2a2a48, #24249c, #03035a);
+}
+
+.bg-red-header {
+    background: linear-gradient(45deg, #6d2001, #930505, #840000);
+}
+
+.bg-green-header {
+    background: linear-gradient(45deg, #069406, #0f550f, #249524);
+
 }
 
 .allSection-header {
