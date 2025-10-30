@@ -184,18 +184,30 @@
 
 .player-field {
     margin-left: 5%;
-    width: 50%;
+    width: 40%;
+    /* background-color: green; */
     background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/PT-G.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 90%; /* высота в процентах относительно родителя */
-    min-height: 40vh; /* минимальная высота для гарантии адекватного отображения */
+    height: 90%;
+    min-height: 40vh;
 }
+
+/* .player-field {
+    display: inline-block;
+    background-color: transparent; 
+    background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/PT-G.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 100%;
+    max-height: 100%; 
+} */
 
 .player-cards {
     margin-left: 2%;
-    width: 45%; /* чуть уменьшил, чтобы было чуть меньше 50%, оставляя место для margin */
+    width: 58%; /* чуть уменьшил, чтобы было чуть меньше 50%, оставляя место для margin */
     height: 90%; /* чтобы совпадало по высоте с .player-field */
     display: flex;
     flex-direction: column;
@@ -214,16 +226,45 @@
     flex-direction: row;
     align-items: stretch; /* чтобы карточки растягивались по высоте контейнера */
     padding: 1vh;
+    /* max-height: 100px; */
 }
 
+
 .card2 {
-    height: 100%; /* растягиваем по высоте родителя */
-    width: 20%; /* можно оставить фиксированным или сделать в %, чтобы адаптировать */
+    height: 100%;
+    width: 15%;
     background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/maya.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
+    /* max-height: 100px; */
 }
+
+@media (max-width: 480px) {
+
+    .cards-zone {
+        max-height: 100px;
+    }
+
+    .player-field {
+        width: 50%;
+        background-position: top;
+    }
+
+    .player-cards {
+        width: 50%;
+    }
+
+    .projectsIT {
+        width: 80%;
+        margin-left: 10%;
+        /* background-color: blue; */
+        background-position: center;
+        margin-bottom: 20px;
+    }
+
+}
+
 
 /* .card2:hover {
     width: 20%;
