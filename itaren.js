@@ -44,6 +44,8 @@ define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], functi
       // Получаем текущий раунд из данных игры
       const currentRound = gamedatas.current_round || 1
       const roundName = gamedatas.round_names && gamedatas.round_names[currentRound] ? gamedatas.round_names[currentRound] : 'Рождение идеи'
+        
+      let currentRoundMarginLeft = ( 1 / 12 ) + (currentRound * 100 / 6)
 
     //   this.addHeaderText('Раунд: ' + currentRound + ' - ' + roundName, 'round_counter')
       //Конец моего кода
@@ -73,6 +75,14 @@ define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], functi
             </div>
             `
       )
+
+    // TODO: подумать стоит и если да то как и где сделать маркер раунда (круг напротив номера рануда в плашенетеше)
+
+    // let allPlanshetElement = this.getGameAreaElement().querySelector('.allPlanshet')
+
+    // allPlanshetElement.innerHTML = "<div class='roundPoint'></div>"
+    
+    // this.getGameAreaElement().querySelector('.roundPoint').style.marginLeft = currentRoundMarginLeft + 'px'
 
     const allSectionHeader = this.getGameAreaElement().querySelector('.allSection-header');
     allSectionHeader.innerHTML = '<h2>Раунд: ' + currentRound + ' - ' + roundName + '</h2>'
@@ -120,7 +130,7 @@ define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], functi
                 <div class="player-zone">
                     <div class="player-field"></div>
                     <div class="player-cards">
-                    <div class="cards-header bg-green shadow-green">
+                    <div class="cards-header bg-green">
                         <p>продажа</p>
                     </div>
                         <div class="cards-zone bg-green">
@@ -128,13 +138,13 @@ define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], functi
                             <div class="card2 shadow-green"></div>
                             <div class="card2 shadow-green"></div>
                         </div>
-                    <div class="cards-header bg-red shadow-red">
+                    <div class="cards-header bg-red">
                         <p>бэк офис</p>
                     </div>
                         <div class="cards-zone bg-red">
                             <div class="card2 shadow-red"></div>
                         </div>
-                    <div class="cards-header bg-blue shadow-blue">    
+                    <div class="cards-header bg-blue">    
                         <p>технари</p>
                     </div>
                         <div class="cards-zone bg-blue">

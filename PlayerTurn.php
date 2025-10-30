@@ -13,7 +13,7 @@ class PlayerTurn extends GameState
 {
     function __construct(protected Game $game,) {
         parent::__construct($game,
-            id: 20,
+            id: 4,
             type: StateType::ACTIVE_PLAYER,
             description: clienttranslate('${actplayer} must play a card or pass'),
             descriptionMyTurn: clienttranslate('${you} must play a card or pass'),
@@ -38,8 +38,7 @@ class PlayerTurn extends GameState
         if ($currentIndex === count($playerIds) - 1) {
             return 'endRound';
         } else {
-            // return NextPlayer::class;
-            return 'nextPlayer';
+            return NextPlayer::class;
         }
     }
     /**
@@ -112,7 +111,7 @@ class PlayerTurn extends GameState
         $this->game->playerEnergy->inc($activePlayerId, 1);
 
         // at the end of the action, move to the next state
-        // return NextPlayer::class;
+        return NextPlayer::class;
         return $this->checkRoundEnd($activePlayerId);
     }
 

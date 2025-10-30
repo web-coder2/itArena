@@ -139,6 +139,13 @@ class Game extends \Bga\GameFramework\Table
         $this->gamestate->nextState("");
     }
 
+    function stPlayerTurn() {
+    // Если пришел переход 'nextPlayer' - активируем следующего игрока
+    if ($this->gamestate->state()['args']['transition'] === 'nextPlayer') {
+        $this->activeNextPlayer();
+    }
+    $this->gamestate->nextState("");
+}
     /*
      * nextPhase: Управление переходами между фазами
      */

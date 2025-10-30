@@ -176,9 +176,10 @@
 
 .player-zone {
     display: flex;
-    align-items: center; 
-    padding: 10px;
-    margin-top: 20px;
+    /* align-items: center; */
+    padding: 1vh; /* вместо 10px, чтобы масштабировалось по высоте */
+    margin-top: 2vh; /* вместо 20px */
+    height: 80vh; /* добавил фиксированную высоту контейнера, чтобы элементы внутри масштабировались */
 }
 
 .player-field {
@@ -188,34 +189,40 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 650px;
-    /* background-color: green; */
+    height: 90%; /* высота в процентах относительно родителя */
+    min-height: 40vh; /* минимальная высота для гарантии адекватного отображения */
 }
 
 .player-cards {
     margin-left: 2%;
-    /* background-color: red; */
-    width: 60%;
+    width: 45%; /* чуть уменьшил, чтобы было чуть меньше 50%, оставляя место для margin */
+    height: 90%; /* чтобы совпадало по высоте с .player-field */
+    display: flex;
+    flex-direction: column;
+}
+
+.cards-header {
+    text-align: center;
+    color: white;
+    font-size: 2vh; /* масштабируем размер шрифта */
 }
 
 .cards-zone {
     display: flex;
-    height: 33%;
-    gap: 10px;
+    height: 33%; /* можно оставить как есть, или задать в vh для адаптивности */
+    gap: 1vh; /* промежутки тоже в относительных единицах */
     flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    /* background-color: black; */
+    align-items: stretch; /* чтобы карточки растягивались по высоте контейнера */
+    padding: 1vh;
 }
 
 .card2 {
-    width: 18%;
+    height: 100%; /* растягиваем по высоте родителя */
+    width: 20%; /* можно оставить фиксированным или сделать в %, чтобы адаптировать */
     background-image: url('https://studio.boardgamearena.com:8084/data/themereleases/current/games/itaren/999999-9999/img/maya.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
-    height: 160px;
-    /* background-color: green; */
 }
 
 /* .card2:hover {
@@ -257,4 +264,10 @@
 .allSection-header {
     padding: 10px;
     margin-left: 5%;
+}
+
+.roundPoint {
+    background-color: red;
+    width: 20px;
+    height: 20px;
 }

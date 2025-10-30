@@ -21,20 +21,23 @@ $machinestates = [
     
     // Фаза событий (первая фаза раунда)
     3 => [
-        'name' => 'eventPhase',
+        'name' => 'eventPhase',  
         'description' => clienttranslate('Event phase'),
         'type' => 'game',
         'action' => 'stEventPhase',
-        'transitions' => [ '' => 4 ]
+        'transitions' => [ '' => 20 ]  
     ],
     
-    // Другие фазы раунда
-    4 => [
-        'name' => 'nextPhase',
-        'description' => '',
+    // Ходы игроков
+    30 => [
+        'name' => 'playerTurn',
+        'description' => clienttranslate('Player turn'),
         'type' => 'game', 
-        'action' => 'stNextPhase',
-        'transitions' => [ 'continue' => 5, 'endRound' => 6 ]
+        'action' => 'stPlayerTurn',
+        'transitions' => [ 
+            'nextPlayer' => 30, 
+            'endRound' => 6 
+        ]
     ],
     
     // Проверка конца игры
