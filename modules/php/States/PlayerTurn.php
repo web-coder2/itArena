@@ -11,37 +11,17 @@ use Bga\Games\itaren\Game;
 
 class PlayerTurn extends GameState
 {
-    function __construct(protected Game $game,) {
+    function __construct(
+        protected Game $game,
+    ) {
         parent::__construct($game,
-            id: 20,
+            id: 10,
             type: StateType::ACTIVE_PLAYER,
             description: clienttranslate('${actplayer} must play a card or pass'),
             descriptionMyTurn: clienttranslate('${you} must play a card or pass'),
         );
     }
 
-
-    /**
-     * Проверяет, завершился ли раунд после хода игрока
-     */
-    private function checkRoundEnd(int $activePlayerId) {
-        // Временная логика для тестирования: 
-        // После хода каждого игрока проверяем, был ли это последний игрок
-        
-        $players = $this->game->loadPlayersBasicInfos();
-        $playerIds = array_keys($players);
-        
-        // Находим индекс текущего игрока
-        $currentIndex = array_search($activePlayerId, $playerIds);
-        
-        // Если это последний игрок в списке - завершаем раунд
-        if ($currentIndex === count($playerIds) - 1) {
-            return 'endRound';
-        } else {
-            // return NextPlayer::class;
-            return 'nextPlayer';
-        }
-    }
     /**
      * Game state arguments, example content.
      *
@@ -89,8 +69,7 @@ class PlayerTurn extends GameState
         $this->playerScore->inc($activePlayerId, 1);
 
         // at the end of the action, move to the next state
-        // return NextPlayer::class;
-        return $this->checkRoundEnd($activePlayerId);
+        return NextPlayer::class;
     }
 
     /**
@@ -112,8 +91,7 @@ class PlayerTurn extends GameState
         $this->game->playerEnergy->inc($activePlayerId, 1);
 
         // at the end of the action, move to the next state
-        // return NextPlayer::class;
-        return $this->checkRoundEnd($activePlayerId);
+        return NextPlayer::class;
     }
 
     /**

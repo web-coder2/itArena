@@ -15,7 +15,7 @@
  *
  */
 
-define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], function (dojo, declare, gamegui, counter) {
+define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter', getLibUrl('bga-animations', '1.x'),], function (dojo, declare, gamegui, counter, BgaAnimations) {
   return declare('bgagame.itaren', ebg.core.gamegui, {
     constructor: function () {
       console.log('itaren constructor')
@@ -46,6 +46,11 @@ define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], functi
       const roundName = gamedatas.round_names && gamedatas.round_names[currentRound] ? gamedatas.round_names[currentRound] : 'Рождение идеи'
         
       let currentRoundMarginLeft = ( 1 / 12 ) + (currentRound * 100 / 6)
+
+      // create the animation manager, and bind it to the `game.bgaAnimationsActive()` function
+      this.animationManager = new BgaAnimations.Manager({
+        animationsActive: () => this.bgaAnimationsActive(),
+    });
 
     //   this.addHeaderText('Раунд: ' + currentRound + ' - ' + roundName, 'round_counter')
       //Конец моего кода
@@ -84,8 +89,8 @@ define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], functi
     
     // this.getGameAreaElement().querySelector('.roundPoint').style.marginLeft = currentRoundMarginLeft + 'px'
 
-    const allSectionHeader = this.getGameAreaElement().querySelector('.allSection-header');
-    allSectionHeader.innerHTML = '<h2>Раунд: ' + currentRound + ' - ' + roundName + '</h2>'
+    // const allSectionHeader = this.getGameAreaElement().querySelector('.allSection-header');
+    // allSectionHeader.innerHTML = '<h2>Раунд: ' + currentRound + ' - ' + roundName + '</h2>'
 
       // Object.values(gamedatas.players).forEach(player => {
       //     this.getPlayerPanelElement(player.id).insertAdjacentHTML('beforeend', `
@@ -244,7 +249,8 @@ define(['dojo', 'dojo/_base/declare', 'ebg/core/gamegui', 'ebg/counter'], functi
     //TODO Свят это мой код
     // Добавляет текст в заголовок
     addHeaderText: function (text, id) {
-      const headerElement = document.getElementById('game_play_area_wrap')
+      // const headerElement = document.getElementById('game_play_area_wrap')
+      const headerElement = document.getElementById('allSection-header')
       if (headerElement && !document.getElementById(id)) {
         const roundCounter = document.createElement('div')
         roundCounter.id = id

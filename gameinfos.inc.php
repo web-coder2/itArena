@@ -28,7 +28,7 @@ $gameinfos = [
     'bgg_id' => 18745,
 
     // Players configuration that can be played (ex: 2 to 4 players) - Конфигурация игроков, которая может быть сыграна (например: от 2 до 4 игроков)
-    'players' => [2, 3, 4], 
+    'players' => [2, 3, 4],
 
     // Suggest players to play with this number of players. Must be null if there is no such advice, or if there is only one possible player configuration. - // Рекомендуемое количество игроков. Должно быть null если нет рекомендации.
     // NB: the automatic lobby will try first the lowest number of players if this is not specified. So you _have to_ specify this parameter if the lowest player number is not compatible with the default options.
@@ -73,8 +73,8 @@ $gameinfos = [
     // NB: the default will be the first language in this list spoken by the player, so you should list them by popularity/preference.
     'language_dependency' => false,
 
-     // Цвета, назначаемые игрокам (желтый, синий, красный, зеленый)
-    'player_colors' => ['ffff00', '0000ff', 'ff0000', '008000'],                       
+    // Цвета, назначаемые игрокам (желтый, синий, красный, зеленый)
+    'player_colors' => ['#ffff00', '#0000ff', '#ff0000', '#008000'],                    
 
     // Поддержка любимых цветов
     'favorite_colors_support' => true,
